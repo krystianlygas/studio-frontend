@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from '@edx/paragon';
 
 import messages from './displayMessages';
 // Sass styles are imported in JS so that we can programatically apply styles to React elements by
@@ -16,7 +17,11 @@ import WrappedMessage from '../../utils/i18n/formattedMessageWrapper';
 // Render our translated "Hello, world!" message in a styled div.
 const HelloWorld = () => (
   <div className={styles['hello-world']}>
-    <WrappedMessage message={messages.helloWorld} />
+    <Button
+      className={['btn-primary']}
+      label={<WrappedMessage message={messages.helloWorld} />}
+      onClick={() => alert('Hello!')}
+    />
   </div>
 );
 
