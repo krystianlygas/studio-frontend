@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button } from '@edx/paragon';
+import { Button, Modal } from '@edx/paragon';
+import 'font-awesome/css/font-awesome.min.css';
 
 import messages from './displayMessages';
 // Sass styles are imported in JS so that we can programatically apply styles to React elements by
@@ -15,14 +16,46 @@ import styles from './HelloWorld.scss'; // Need the .scss because Webpack assume
 import WrappedMessage from '../../utils/i18n/formattedMessageWrapper';
 
 // Render our translated "Hello, world!" message in a styled div.
-const HelloWorld = () => (
-  <div className={styles['hello-world']}>
-    <Button
-      className={['btn-primary']}
-      label={<WrappedMessage message={messages.helloWorld} />}
-      onClick={() => alert('Hello!')}
-    />
-  </div>
-);
+export default class HelloWorld extends React.Component {
+  constructor(props) {
+    super(props);
 
-export default HelloWorld;
+    this.state = {
+      modalOpen: false,
+    };
+    this.handleButtonClick = this.handleButtonClick.bind(this);
+    this.handleModalClose = this.handleModalClose.bind(this);
+  }
+
+  handleButtonClick() {
+    this.setState({
+      modalOpen: true,
+    });
+  }
+
+  handleModalClose() {
+    this.setState({
+      modalOpen: false,
+    });
+  }
+
+  render() {
+    return (
+      <div className={styles['hello-world']}>
+        <Modal
+          open={this.state.modalOpen}
+          title={<WrappedMessage message={messages.helloWorldModalTitle} />}
+          body={<WrappedMessage message={messages.helloWorld} />}
+          onClose={this.handleModalClose}
+          parentSelector={`.${styles['hello-world']}`}
+        />
+        <Button
+          className={['btn-primary']}
+          id="open-modal-btn"
+          label={<WrappedMessage message={messages.helloWorld} />}
+          onClick={this.handleButtonClick}
+        />
+      </div>
+    );
+  }
+}

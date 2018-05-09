@@ -12,6 +12,11 @@ const messages = defineMessages({
     defaultMessage: 'Hello, world!',
     description: 'Says hello to the world!',
   },
+  helloWorldModalTitle: {
+    id: 'helloWorldModalTitle',
+    defaultMessage: 'Hello Modal',
+    description: 'Title of a modal.',
+  },
 });
 
 export default messages;
