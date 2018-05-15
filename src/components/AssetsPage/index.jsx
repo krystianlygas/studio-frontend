@@ -114,11 +114,11 @@ export default class AssetsPage extends React.Component {
           >
             <WrappedMessage message={messages.assetsPageSkipLink} />
           </a>
-          { this.renderAssetsDropZone() }
+          {this.renderAssetsDropZone()}
           <div className="page-header">
             <WrappedAssetsImagePreviewFilter />
           </div>
-          { this.renderAssetsFilters() }
+          {this.renderAssetsFilters()}
         </div>
         <div className="col-10" id={TABLE_CONTENTS_ID} tabIndex="-1">
           <div className="row">
@@ -143,10 +143,10 @@ export default class AssetsPage extends React.Component {
   renderNoAssetsPage = () => (
     <div className="row">
       <div className="col">
-        { this.renderAssetsDropZone() }
+        {this.renderAssetsDropZone()}
       </div>
       <div className="col-10">
-        { this.renderNoAssetsBody() }
+        {this.renderNoAssetsBody()}
       </div>
     </div>
   );
@@ -161,11 +161,11 @@ export default class AssetsPage extends React.Component {
   renderNoResultsPage = () => (
     <div className="row">
       <div className="col">
-        { this.renderAssetsDropZone() }
-        { this.renderAssetsFilters() }
+        {this.renderAssetsDropZone()}
+        {this.renderAssetsFilters()}
       </div>
       <div className="col-10">
-        { this.renderNoResultsBody() }
+        {this.renderNoResultsBody()}
       </div>
     </div>
   );
@@ -173,8 +173,8 @@ export default class AssetsPage extends React.Component {
   renderSkeletonPage = () => (
     <div className="row">
       <div className="col-2">
-        { this.renderAssetsDropZone() }
-        { this.renderAssetsFilters() }
+        {this.renderAssetsDropZone()}
+        {this.renderAssetsFilters()}
       </div>
     </div>
   );
@@ -194,13 +194,13 @@ export default class AssetsPage extends React.Component {
           </div>
           {(this.state.pageType === pageTypes.NORMAL ||
             this.state.pageType === pageTypes.NO_RESULTS) && (
-            <div className="row">
-              <div className="col-12 p-0">
-                <WrappedAssetsSearch />
+              <div className="row">
+                <div className="col-12 p-0">
+                  <WrappedAssetsSearch />
+                </div>
               </div>
-            </div>
-          )}
-          { this.getPage(this.state.pageType) }
+            )}
+          {this.getPage(this.state.pageType)}
         </div>
       </React.Fragment>
     );

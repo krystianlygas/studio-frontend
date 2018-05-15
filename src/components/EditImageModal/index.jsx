@@ -40,22 +40,22 @@ const imageWidthID = 'imageWidth';
 const modalWrapperID = 'modalWrapper';
 
 const initialEditImageModalState = {
+  areImageDimensionsValid: true,
   areProportionsLocked: true,
   assetsPageType: pageTypes.SKELETON,
   baseAssetURL: '',
+  currentValidationMessages: {},
   displayLoadingSpinner: false,
   imageDescription: '',
   imageDimensions: {},
-  isImageDecorative: false,
-  isImageLoaded: false,
-  isImageLoading: false,
-  isImageDescriptionValid: true,
-  isImageDimensionsValid: true,
-  isStatusAlertOpen: false,
   imageSource: '',
   imageStyle: '',
+  isImageDecorative: false,
+  isImageDescriptionValid: true,
+  isImageLoaded: false,
+  isImageLoading: false,
+  isStatusAlertOpen: false,
   open: false,
-  currentValidationMessages: {},
   pageNumber: 1,
   shouldShowPreviousButton: false,
 };
@@ -251,7 +251,7 @@ export default class EditImageModal extends React.Component {
     this.setState({
       isStatusAlertOpen: !isValidFormContent,
       isImageDescriptionValid: isValidImageDescription.isValid,
-      isImageDimensionsValid: isValidImageDimensions.isValid,
+      areImageDimensionsValid: isValidImageDimensions.isValid,
       currentValidationMessages,
     });
 
@@ -422,7 +422,7 @@ export default class EditImageModal extends React.Component {
       legend={<WrappedMessage message={messages.editImageModalDimensionsLegend} />}
       id={imageDimensionsFieldsetID}
       invalidMessage={<WrappedMessage message={messages.editImageModalFormValidImageDimensions} />}
-      isValid={this.state.isImageDimensionsValid}
+      isValid={this.state.areImageDimensionsValid}
       variant={{
         status: Variant.status.DANGER,
       }}
@@ -637,15 +637,15 @@ export default class EditImageModal extends React.Component {
       </div>
       <div className="row no-gutters">
         <div className="col">
-          <h3>Select a previously uploaded image</h3>
+          <WrappedMessage message={messages.editImageModalInsertHeader} tagName="h3" />
         </div>
       </div>
       <div className="row">
         <div className="col-6 order-2">
           {(this.state.assetsPageType === pageTypes.NORMAL ||
             this.state.assetsPageType === pageTypes.NO_RESULTS) && (
-            <WrappedAssetsSearch />
-          )}
+              <WrappedAssetsSearch />
+            )}
         </div>
         <div className="col-6 order-1">
           {this.state.assetsPageType === pageTypes.NORMAL && (
