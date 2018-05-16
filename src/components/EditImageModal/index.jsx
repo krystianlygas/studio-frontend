@@ -644,8 +644,8 @@ export default class EditImageModal extends React.Component {
         <div className="col-6 order-2">
           {(this.state.assetsPageType === pageTypes.NORMAL ||
             this.state.assetsPageType === pageTypes.NO_RESULTS) && (
-              <WrappedAssetsSearch />
-            )}
+            <WrappedAssetsSearch />
+          )}
         </div>
         <div className="col-6 order-1">
           {this.state.assetsPageType === pageTypes.NORMAL && (

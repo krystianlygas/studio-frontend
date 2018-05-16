@@ -194,12 +194,12 @@ export default class AssetsPage extends React.Component {
           </div>
           {(this.state.pageType === pageTypes.NORMAL ||
             this.state.pageType === pageTypes.NO_RESULTS) && (
-              <div className="row">
-                <div className="col-12 p-0">
-                  <WrappedAssetsSearch />
-                </div>
+            <div className="row">
+              <div className="col-12 p-0">
+                <WrappedAssetsSearch />
               </div>
-            )}
+            </div>
+          )}
           {this.getPage(this.state.pageType)}
         </div>
       </React.Fragment>
