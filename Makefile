@@ -76,7 +76,7 @@ push_translations: | i18n.extract
 
 pull_translations: ## must be exactly this name for edx tooling support, see ecommerce-scripts/transifex/pull.py
 	# explicit list of languages defined here and in currentlySupportedLangs.jsx
-	tx pull -f --mode reviewed --language="ar,fr,es_419,zh_CN"
+	tx pull -f --mode reviewed --language="ar,fr,es_419,zh_CN,pl"
 
 package-lock.validate:
 	git diff --name-only --exit-code package-lock.json
