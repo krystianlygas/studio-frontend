@@ -3,11 +3,13 @@ import enData from 'react-intl/locale-data/en';
 import esData from 'react-intl/locale-data/es';
 import frData from 'react-intl/locale-data/fr';
 import zhData from 'react-intl/locale-data/zh';
+import plData from 'react-intl/locale-data/pl';
 
 import './ar.json';
 import './es_419.json';
 import './fr.json';
 import './zh_CN.json';
+import './pl.json';
 
 // Methodology: These languages (plus the default english) are the only ones that appear on edx.org
 // This was determined by inspecting the 'released_languages' method in the following file:
@@ -23,6 +25,7 @@ const localeDataMap = {
   'es-419': esData,
   'fr': frData,
   'zh-cn': zhData,
+  'pl': plData,
 };
 
 export default localeDataMap;
