@@ -12,8 +12,7 @@
     "start": "NODE_ENV=development BABEL_ENV=development $(npm bin)/webpack-dev-server --config=config/webpack.dev.config.js --hot --inline --progress",
     "test": "jest --coverage",
     "install": "npm install",
-    "postinstall": "npm run build",
-
+    "postinstall": "npm run build"
   },
   "license": "AGPL-3.0",
   "dependencies": {
