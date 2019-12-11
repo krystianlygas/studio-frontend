@@ -11,7 +11,8 @@
     "prepare": "npm run build",
     "start": "NODE_ENV=development BABEL_ENV=development $(npm bin)/webpack-dev-server --config=config/webpack.dev.config.js --hot --inline --progress",
     "test": "jest --coverage",
-    "install": "npm install"
+    "install": "npm install",
+    "postinstall": "npm run build"
   },
   "license": "AGPL-3.0",
   "dependencies": {
@@ -84,7 +85,7 @@
     "semantic-release": "^15.1.7",
     "style-loader": "^0.20.3",
     "webpack": "^4.2.0",
-    "webpack-cli": "^2.0.13",
+    "webpack-cli": "^3.1.1",
     "webpack-dev-server": "^3.1.1",
     "webpack-merge": "^4.1.2"
   },
